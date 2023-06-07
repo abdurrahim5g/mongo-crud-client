@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { toast } from "react-hot-toast";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const Users = () => {
   const users = useLoaderData();
@@ -39,6 +39,9 @@ const Users = () => {
           <div key={user._id}>
             <p className="" style={{ display: "block", overflow: "hidden" }}>
               {user.name}{" "}
+              <Link to={`/users/update/${user._id}`}>
+                <button style={{ float: "right", margin: 0 }}>Update</button>
+              </Link>
               <button
                 style={{ float: "right", color: "red", margin: "0px" }}
                 onClick={() => handleDelete(user)}
